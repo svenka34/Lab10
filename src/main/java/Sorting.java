@@ -32,7 +32,16 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] bubbleSort(final int[] array) {
-        return null;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length - i - 1; j++) {
+                if (array[j] < array[j - 1]) {
+                    int temp = array[j];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        return array;
     }
 
     /**
@@ -176,7 +185,8 @@ public class Sorting {
         int whichAlgorithm;
         while (true) {
             System.out.println("Enter the sorting algorithm that you want to use"
-                    + " (1 for bubble sort, 2 for insertion sort, 3 for merge sort, 4 for built-in): ");
+                    + " (1 for bubble sort, 2 for insertion sort, " +
+                    "3 for merge sort, 4 for built-in): ");
             whichAlgorithm = userInput.nextInt();
             if (whichAlgorithm > 0 && whichAlgorithm < 5) {
                 break;
